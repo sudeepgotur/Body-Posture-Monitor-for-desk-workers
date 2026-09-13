@@ -29,7 +29,7 @@ To avoid unnecessary alerts caused by temporary movements, the system uses a **4
                   ┌─────────────────────┐
                   │      MPU6050        │
                   │     IMU Sensor      │
-                  │ Accelerometer/Gyro   │
+                  │ Accelerometer/Gyro  │
                   └──────────┬──────────┘
                              │
                          I²C (SDA/SCL)
@@ -37,7 +37,7 @@ To avoid unnecessary alerts caused by temporary movements, the system uses a **4
                              ▼
                   ┌─────────────────────┐
                   │        ESP32        │
-                  │    Microcontroller   │
+                  │    Microcontroller  │
                   └──────────┬──────────┘
                              │
                       Posture Angle
@@ -260,8 +260,6 @@ Body-Posture-Monitor-ESP32/
 └── docs/
     └── project-report.pdf
 ```
-
-> Update the filenames in this section if your actual files have different names.
 
 ---
 
