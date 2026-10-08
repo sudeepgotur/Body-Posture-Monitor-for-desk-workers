@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Desk Posture Monitor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header>
+      <h1>Desk Posture Monitor</h1>
+      <p>Live posture status from ESP32 + MPU6050</p>
+    </header>
+
+    <main>
+      <!-- LEFT: Live posture card -->
+      <section class="status-card">
+        <h2>Current Posture</h2>
+        <div id="postureStatus" class="status-label status-good">
+          GOOD
+        </div>
+        <p id="postureMessage" class="status-message">
+          Sit comfortably and maintain a neutral posture.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric">
+            <span class="label">Pitch</span>
+            <span id="pitchValue" class="value">--</span>
+            <span class="unit">deg</span>
+          </div>
+
+          <div class="metric">
+            <span class="label">Reference Pitch</span>
+            <span id="refPitchValue" class="value">--</span>
+            <span class="unit">deg</span>
+          </div>
+
+          <div class="metric">
+            <span class="label">Deviation</span>
+            <span id="devValue" class="value">--</span>
+            <span class="unit">deg</span>
+          </div>
+
+          <div class="metric">
+            <span class="label">Bad Duration</span>
+            <span id="badSecondsValue" class="value">0</span>
+            <span class="unit">s</span>
+          </div>
+        </div>
+
+        <p id="lastUpdate" class="last-update">
+          Last update: --
+        </p>
+      </section>
+
+      <!-- RIGHT: Summary + legend -->
+      <div class="right-column">
+        <section class="summary-card">
+          <h3>Posture Summary (since device started)</h3>
+
+          <div class="summary-row">
+            <div class="summary-label">
+              Good posture
+              <span id="goodPercentText" class="summary-value">-- %</span>
+            </div>
+            <div class="bar-container">
+              <div id="goodBar" class="bar bar-good"></div>
+            </div>
+          </div>
+
+          <div class="summary-row">
+            <div class="summary-label">
+              Bad posture
+              <span id="badPercentText" class="summary-value">-- %</span>
+            </div>
+            <div class="bar-container">
+              <div id="badBar" class="bar bar-bad"></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="legend">
+          <h3>Posture Levels</h3>
+          <ul>
+            <li><span class="dot dot-good"></span>Good – within safe angle range.</li>
+            <li><span class="dot dot-warn"></span>Warning – bent, but less than 40s.</li>
+            <li><span class="dot dot-bad"></span>Bad – bent for 40s or more.</li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
